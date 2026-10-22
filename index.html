@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="数字摄影开源学习工具：相机与镜头、曝光模拟、构图演示、用光、数字暗房与自测。无需注册，在浏览器中练习。">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="theme-color" content="#253b30">
+  <title>光影自习室 · 数字摄影实验室</title>
+  <link rel="icon" href="./assets/aperture.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./data.js"></script>
+  <script defer src="./math.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳转到主要内容</a>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="光影自习室首页"><img src="./assets/aperture.svg" width="34" height="34" alt=""><span>光影自习室<small>DIGITAL PHOTOGRAPHY LAB</small></span></a>
+    <nav aria-label="主导航"><a href="#learn">学习手册</a><a href="#exposure">曝光实验</a><a href="#composition">构图观察</a><a href="#quiz">知识自测</a></nav>
+    <a class="header-cta" href="#field">带着清单去拍摄 <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="main">
+    <section class="hero wrap" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy"><p class="eyebrow"><span class="status-dot"></span> A SMALL LAB FOR SEEING</p><h1 id="hero-title">学会看见，<br>再按下<span>快门。</span></h1><p class="hero-intro">把摄影知识变成手上的直觉。<br>从一束光、一个参数、一次观察开始，<br>在这里练习，也走出去拍摄。</p><div class="hero-actions"><a class="button primary" href="#exposure">打开曝光实验 <span aria-hidden="true">↗</span></a><a class="text-link" href="#learn">从基础开始 <span aria-hidden="true">→</span></a></div><div class="hero-meta"><span><b>07</b> 学习章节</span><span><b>03</b> 交互练习</span><span>浏览器内运行<br>无需注册</span></div></div>
+      <figure class="hero-visual"><div class="viewfinder"><img src="./assets/landscape.svg" width="900" height="1050" alt="原创风景示意图：夕阳、层叠的山与湖面"><span class="finder-corner tl"></span><span class="finder-corner tr"></span><span class="finder-corner bl"></span><span class="finder-corner br"></span><div class="finder-top"><span><i></i> LIVE VIEW</span><span>FRAME 001</span></div><div class="focus-mark" aria-hidden="true">+</div><div class="finder-bottom"><span>f / 8</span><span>1 / 125 s</span><span>ISO 100</span></div></div><figcaption><span>观察光的形状</span><span>原创风景示意 / ILLUSTRATION</span></figcaption><div class="floating-note"><span>01 / 观察练习</span><p>今天，试着为同一处风景<br>等待两种不同的光。</p><span class="note-arrow" aria-hidden="true">↗</span></div></figure>
+    </section>
+    <div class="chapter-strip"><div class="wrap"><span>你的摄影学习路线</span><p>认识相机 <i>/</i> 控制曝光 <i>/</i> 组织画面 <i>/</i> 读懂光线 <i>/</i> 完成作品</p><span aria-hidden="true">↓</span></div></div>
+    <section class="section wrap" id="learn" aria-labelledby="learn-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / THE FIELD GUIDE</p><h2 id="learn-title">让每一次拍摄，都有依据。</h2></div><p>七个章节，二十一个知识卡片。<br>按顺序学习，也可以从眼前的问题开始。</p></div>
+      <div class="library-toolbar"><div class="filters" role="group" aria-label="按章节筛选" id="chapter-filters"></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="lesson-search" type="search" placeholder="搜索曝光、景深、白平衡…" aria-label="搜索学习卡片"></label></div>
+      <p class="result-count" id="result-count" aria-live="polite"></p><div class="lesson-grid" id="lesson-grid"></div><p class="empty-state" id="empty-state" hidden>没有找到对应内容，试试“光圈”“构图”或“用光”。</p>
+    </section>
+    <section class="lab-section" id="exposure" aria-labelledby="exposure-title"><div class="wrap">
+      <div class="section-heading"><div><p class="eyebrow">02 / EXPOSURE PLAYGROUND</p><h2 id="exposure-title">三个参数，一起看懂。</h2></div><p>移动滑块，观察亮度与效果提示的变化。<br>这是教学示意，实际曝光请结合现场测光。</p></div>
+      <div class="exposure-layout"><div class="exposure-display"><div class="lab-topline"><span><i class="status-dot"></i> 曝光实验 / 手动模式</span><span id="scene-name">日间风光</span></div><div class="simulation-frame"><img id="exposure-image" src="./assets/landscape.svg" alt="随参数变化亮度的风景示意图" width="900" height="1050"><div class="sim-grid" aria-hidden="true"></div><div class="exposure-badge" id="exposure-status" role="status">基准曝光</div></div><div class="meter" aria-label="相对基准曝光表"><span>−3</span><div class="meter-track"><span></span><span></span><span></span><b>0</b><span></span><span></span><span></span><i id="meter-needle"></i></div><span>+3</span></div><p class="sim-caption">示意图只模拟相对亮度。景深、噪点与运动效果见右侧提示，画面不模拟这些效果。</p></div>
+      <div class="exposure-controls"><div class="control-title"><h3>试着改变一种选择</h3><button class="small-button" id="reset-exposure" type="button">重置参数 ↺</button></div><div class="scene-presets" role="group" aria-label="载入拍摄场景"><button type="button" data-scene="landscape" aria-pressed="true">日间风光</button><button type="button" data-scene="portrait" aria-pressed="false">环境人像</button><button type="button" data-scene="motion" aria-pressed="false">运动抓拍</button></div>
+        <div class="range-control"><label for="aperture">光圈 <span>APERTURE</span><output id="aperture-value" for="aperture">f/8</output></label><input id="aperture" type="range" min="0" max="7" value="5" step="1"><div class="range-labels"><span>f/1.4 · 大光圈</span><span>f/16 · 小光圈</span></div><p id="aperture-hint"></p></div>
+        <div class="range-control"><label for="shutter">快门 <span>SHUTTER</span><output id="shutter-value" for="shutter">1/125 s</output></label><input id="shutter" type="range" min="0" max="10" value="6" step="1"><div class="range-labels"><span>1/2 s · 慢</span><span>1/2000 s · 快</span></div><p id="shutter-hint"></p></div>
+        <div class="range-control"><label for="iso">感光度 <span>ISO</span><output id="iso-value" for="iso">100</output></label><input id="iso" type="range" min="0" max="6" value="0" step="1"><div class="range-labels"><span>100 · 低</span><span>6400 · 高</span></div><p id="iso-hint"></p></div>
+        <div class="exposure-summary"><span>相对场景基准</span><strong id="ev-value">0.0 档</strong><p id="exposure-explanation"></p></div>
+      </div></div>
+      <div class="lab-footnote"><span>试一试</span><p>把光圈从 f/8 开大到 f/5.6，再把快门从 1/125 s 加快到 1/250 s。观察相对亮度是否基本不变。</p></div>
+    </div></section>
+    <section class="section wrap" id="composition" aria-labelledby="composition-title"><div class="section-heading"><div><p class="eyebrow">03 / COMPOSITION & LIGHT</p><h2 id="composition-title">画面里的秩序，光线里的情绪。</h2></div><p>构图与布光都是表达的选择。<br>先观察变化，再判断它是否适合你的主题。</p></div><div class="practice-grid">
+      <article class="practice-card"><div class="practice-title"><span>构图观察台</span><span>01 / FRAME</span></div><div class="composition-stage" id="composition-stage"><img src="./assets/landscape.svg" alt="构图网格叠加在山与湖的原创示意图上" width="900" height="1050"><svg id="composition-overlay" viewBox="0 0 600 400" preserveAspectRatio="none" aria-hidden="true"></svg></div><div class="choice-buttons" role="group" aria-label="选择构图辅助线"><button type="button" data-composition="thirds" aria-pressed="true">三分法</button><button type="button" data-composition="center" aria-pressed="false">中心构图</button><button type="button" data-composition="diagonal" aria-pressed="false">对角线</button><button type="button" data-composition="none" aria-pressed="false">无辅助线</button></div><h3 id="composition-name">把注意力放在交点附近</h3><p id="composition-text"></p></article>
+      <article class="practice-card"><div class="practice-title"><span>布光观察台</span><span>02 / LIGHT</span></div><div class="lighting-stage"><svg viewBox="0 0 600 400" role="img" aria-labelledby="light-diagram-title"><title id="light-diagram-title">人物正面及主光方向示意</title><defs><linearGradient id="face-light"><stop id="face-stop-a" stop-color="#e4c19c"/><stop id="face-stop-b" offset="1" stop-color="#514b42"/></linearGradient></defs><circle cx="300" cy="200" r="146" fill="none" stroke="#486052" stroke-dasharray="3 9"/><path d="M200 365 Q200 300 260 292 L340 292 Q400 300 400 365" fill="#455d4e"/><rect x="278" y="263" width="44" height="50" rx="16" fill="#ad8b6d"/><ellipse cx="300" cy="191" rx="68" ry="93" fill="url(#face-light)"/><path d="M245 156 Q300 63 355 156 Q357 90 300 86 Q238 90 245 156" fill="#293c31"/><path d="M271 181 h13 M316 181 h13 M297 185 l-7 35 h12 M280 244 q20 10 40 0" stroke="#423b32" stroke-width="4" fill="none" stroke-linecap="round"/><path id="light-ray" d="M130 110 L245 165" stroke="#d8e9a0" stroke-width="2" stroke-dasharray="6 6"/><g id="light-source"><circle cx="115" cy="100" r="27" fill="#d8e9a0"/><path d="M100 100 h30 M115 85 v30" stroke="#253b30" stroke-width="2"/></g><text x="300" y="390" text-anchor="middle" fill="#b8c5b9" font-size="13">示意图 · 阴影形状以实际面部和灯位为准</text></svg></div><div class="choice-buttons" role="group" aria-label="选择布光方式"><button type="button" data-light="rembrandt" aria-pressed="true">伦勃朗光</button><button type="button" data-light="butterfly" aria-pressed="false">蝶形光</button><button type="button" data-light="split" aria-pressed="false">分割光</button><button type="button" data-light="back" aria-pressed="false">逆光</button></div><h3 id="lighting-name"></h3><p id="lighting-text"></p></article>
+    </div></section>
+    <section class="quiz-section" id="quiz" aria-labelledby="quiz-title"><div class="wrap quiz-layout"><div class="quiz-intro"><p class="eyebrow">04 / A QUICK CHECK</p><h2 id="quiz-title">理解了，<br>就试着判断。</h2><p>每轮随机抽取六题。<br>答案后附解释，把记忆变成理解。</p><span class="round-stamp">THINK<br>BEFORE<br>YOU SHOOT ↗</span></div><div class="quiz-panel"><div class="quiz-topline"><span id="quiz-progress">问题 01 / 06</span><span id="quiz-score">答对 0 题</span></div><div class="quiz-progress-track"><span id="quiz-progress-bar"></span></div><h3 id="quiz-question"></h3><div class="quiz-options" id="quiz-options"></div><div id="quiz-feedback" class="quiz-feedback" aria-live="polite" hidden></div><button class="button primary" id="quiz-next" type="button" hidden>下一题 →</button><button class="button primary" id="quiz-restart" type="button" hidden>再练一轮 ↺</button></div></div></section>
+    <section class="section wrap field-section" id="field" aria-labelledby="field-title"><div><p class="eyebrow">05 / OUT INTO THE WORLD</p><h2 id="field-title">下一张照片，<br>从这里出发。</h2><p>出门前花一分钟检查。完成一项就勾选一项，<br>清单仅保存在这台设备的当前浏览器中。</p><button type="button" class="text-link clear-checklist" id="clear-checklist">清空本地清单 ↺</button><p id="storage-status" class="storage-status" aria-live="polite"></p></div><div class="checklist-panel"><div class="checklist-header"><span>拍摄前检查清单</span><span id="checklist-count">0 / 6</span></div><div id="field-checklist"></div><p class="field-note">拍完后再问自己：我希望观众先看到什么？</p></div></section>
+  </main>
+  <footer class="site-footer"><div class="wrap"><div><a class="brand" href="#home"><img src="./assets/aperture.svg" alt="" width="30" height="30"><span>光影自习室</span></a><p>用知识理解光，用练习留下自己的观察。</p></div><div class="footer-info"><span>开源代码 / MIT License</span><span>本站无第三方脚本、外链字体或统计追踪</span><a href="./PRIVACY.md">隐私说明 ↗</a></div><a class="back-top" href="#home" aria-label="回到顶部">↑</a></div></footer>
+  <dialog id="lesson-dialog" aria-labelledby="dialog-title"><button class="dialog-close" id="dialog-close" type="button" aria-label="关闭知识卡片">×</button><div id="lesson-detail"></div></dialog>
+  <noscript><p class="noscript-notice">请启用 JavaScript 使用学习卡片和交互练习。本站代码完全开源，无需连接第三方服务。</p></noscript>
+</body>
+</html>

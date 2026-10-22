@@ -1,0 +1,15 @@
+dist/
+node_modules/
+*.log
+.env
+.env.*
+!.env.example
+*.ppt
+*.pptx
+*.pdf
+*.doc
+*.docx
+*.zip
+work/
+.DS_Store
+Thumbs.db

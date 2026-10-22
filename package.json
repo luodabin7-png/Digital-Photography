@@ -1,0 +1,14 @@
+{
+  "name": "digital-photography-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A browser-local digital photography learning lab.",
+  "license": "MIT",
+  "scripts": {
+    "start": "node scripts/serve.cjs",
+    "test": "node --test tests/core.test.cjs",
+    "check": "node scripts/check.cjs",
+    "build": "node scripts/build.cjs"
+  },
+  "engines": { "node": ">=20" }
+}
